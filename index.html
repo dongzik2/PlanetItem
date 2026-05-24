@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장비 판매 & 정산 관리 대시보드 | 메이플랜드 장비 판매 관리 대장</title>
+    <meta name="description" content="메이플랜드 장비 판매 현황, 정산금 및 송금 내역을 실시간으로 관리하는 프리미엄 대시보드">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css?v=3">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar or Header -->
+        <header class="app-header">
+            <div class="header-main">
+                <div class="logo-area">
+                    <div class="logo-icon">
+                        <img src="이제문.png" alt="Logo">
+                    </div>
+                    <div>
+                        <h1 class="logo-title">장비 판매 & 정산 관리 대시보드</h1>
+                        <p class="logo-subtitle">Maple Land Sales & Settlement Ledger</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="btn-sync" class="btn btn-primary">
+                        <i class="fa-solid fa-rotate"></i> 시트 동기화
+                    </button>
+                    <button id="btn-settings" class="btn btn-secondary">
+                        <i class="fa-solid fa-gear"></i> 설정
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Content -->
+        <main class="app-content">
+            <!-- Stats Section -->
+            <section class="stats-grid">
+                <!-- Stat 1: Total Revenue -->
+                <div class="stat-card revenue-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">총 판매 예정액 (전체 가격 합계)</span>
+                        <div class="stat-value-container">
+                            <span class="stat-value" id="stat-total-revenue">0</span>
+                            <span class="stat-unit">메소</span>
+                        </div>
+                        <span class="stat-subtext">등록된 모든 장비의 판매 가격 총합</span>
+                    </div>
+                </div>
+
+                <!-- Stat 2: Net Revenue (Sold) -->
+                <div class="stat-card net-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">판매 완료 정산액 (수수료 제외)</span>
+                        <div class="stat-value-container">
+                            <span class="stat-value" id="stat-net-revenue">0</span>
+                            <span class="stat-unit">메소</span>
+                        </div>
+                        <span class="stat-subtext">판매 완료된 물품의 10% 수수료 제외 실수령액</span>
+                    </div>
+                </div>
+
+                <!-- Stat 3: Remitted Amount -->
+                <div class="stat-card remitted-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label" id="label-remittance">1차 송금 완료액</span>
+                        <div class="stat-value-container">
+                            <span class="stat-value" id="stat-remitted">0</span>
+                            <span class="stat-unit">메소</span>
+                        </div>
+                        <span class="stat-subtext" id="label-remittance-date">정산 완료 후 송금된 금액</span>
+                    </div>
+                </div>
+
+                <!-- Stat 4: Remaining Balance -->
+                <div class="stat-card remaining-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">미정산 남은 금액</span>
+                        <div class="stat-value-container">
+                            <span class="stat-value" id="stat-remaining">0</span>
+                            <span class="stat-unit">메소</span>
+                        </div>
+                        <span class="stat-subtext">현재 송금 대기 중인 잔액</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settlement Progress Card -->
+            <section class="progress-section">
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-title-group">
+                            <i class="fa-solid fa-chart-line progress-icon"></i>
+                            <div>
+                                <h3 class="progress-title">송금 정산 진행 상황</h3>
+                                <p class="progress-subtitle">전체 판매 완료 금액 대비 실송금 진행도</p>
+                            </div>
+                        </div>
+                        <div class="progress-percent-badge" id="progress-percentage">0%</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar-fill"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="progress-stat">
+                            <span class="dot remitted-dot"></span>
+                            <span class="label">송금 완료:</span>
+                            <span class="value" id="progress-remitted">0 메소</span>
+                        </div>
+                        <div class="progress-stat">
+                            <span class="dot remaining-dot"></span>
+                            <span class="label">남은 금액:</span>
+                            <span class="value" id="progress-remaining">0 메소</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filters & Actions Area -->
+            <section class="controls-section">
+                <div class="controls-card">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="search-input" placeholder="장비명, 스텟(STR/DEX/명중/공격력) 검색...">
+                        <button id="btn-clear-search" class="clear-btn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    
+                    <div class="controls-filters">
+                        <!-- Category Tabs -->
+                        <div class="tabs-container">
+                            <button class="tab-btn active" data-tab="all">
+                                전체 <span class="tab-count" id="count-all">0</span>
+                            </button>
+                            <button class="tab-btn" data-tab="armor">
+                                방어구 <span class="tab-count" id="count-armor">0</span>
+                            </button>
+                            <button class="tab-btn" data-tab="active">
+                                판매중 <span class="tab-count" id="count-active">0</span>
+                            </button>
+                            <button class="tab-btn" data-tab="sold">
+                                판매완료 <span class="tab-count" id="count-sold">0</span>
+                            </button>
+                        </div>
+
+                        <!-- Sort & View Controls -->
+                        <div class="action-dropdowns">
+                            <div class="select-wrapper">
+                                <i class="fa-solid fa-arrow-down-wide-short select-icon"></i>
+                                <select id="sort-select">
+                                    <option value="price-desc">판매가 높은 순</option>
+                                    <option value="price-asc">판매가 낮은 순</option>
+                                    <option value="stats-desc">합스텟 높은 순</option>
+                                    <option value="atk-desc">공격력 높은 순</option>
+                                    <option value="expiry-asc">만료일 가까운 순</option>
+                                </select>
+                            </div>
+
+                            <div class="view-toggle-group">
+                                <button id="view-grid" class="view-toggle-btn active" title="카드 뷰">
+                                    <i class="fa-solid fa-table-cells-large"></i>
+                                </button>
+                                <button id="view-list" class="view-toggle-btn" title="리스트 뷰">
+                                    <i class="fa-solid fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Items Display Area -->
+            <section class="items-section">
+                <!-- Card Grid View Container -->
+                <div id="items-grid" class="items-grid-view">
+                    <!-- Dynamic Items will be rendered here -->
+                </div>
+
+                <!-- List Table View Container (Hidden by default) -->
+                <div id="items-list-container" class="items-list-view" style="display: none;">
+                    <div class="table-responsive">
+                        <table class="items-table">
+                            <thead>
+                                <tr>
+                                    <th>장비명</th>
+                                    <th>분류</th>
+                                    <th>STR</th>
+                                    <th>DEX</th>
+                                    <th>명중률/공격력</th>
+                                    <th>합스텟</th>
+                                    <th>잠재 유무</th>
+                                    <th>판매 가격</th>
+                                    <th>상태</th>
+                                    <th>만료일</th>
+                                    <th>수수료 제외</th>
+                                </tr>
+                            </thead>
+                            <tbody id="items-table-body">
+                                <!-- Dynamic rows will be rendered here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <i class="fa-solid fa-magnifying-glass-minus empty-icon"></i>
+                    <h3>검색 결과가 없습니다</h3>
+                    <p>검색어나 필터를 확인해 주세요.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Settings Modal / Sheet Update Dynamic -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fa-solid fa-gear"></i> 데이터 원본 설정</h2>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-desc">Google Sheet 또는 CSV 원본 데이터를 동적으로 동기화할 수 있습니다.</p>
+                    
+                    <div class="form-group">
+                        <label for="input-sheet-url">Google Sheet CSV Export URL</label>
+                        <input type="text" id="input-sheet-url" placeholder="https://docs.google.com/spreadsheets/d/.../export?format=csv&..." value="https://docs.google.com/spreadsheets/d/16JnG5TfMvNPCuX6oQfWbkfcGkMt8mbXt42Uf91ON0Qo/export?format=csv&gid=1054538974">
+                        <small class="form-help">시트가 '링크를 가진 모든 사용자에게 공개' 상태여야 실시간 연동이 가능합니다.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-csv-raw">직접 CSV 데이터 붙여넣기 (선택사항)</label>
+                        <textarea id="input-csv-raw" placeholder="장비명,STR,DEX,명중률..."></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="btn-save-settings" class="btn btn-primary">적용하기</button>
+                        <button id="btn-reset-data" class="btn btn-secondary">기본값으로 복원</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detail Dialog / Equip Tooltip simulation on Click (Mobile Friendly) -->
+        <div id="detail-modal" class="modal">
+            <div class="modal-content tooltip-modal-content">
+                <span class="close-detail-modal">&times;</span>
+                <div id="item-tooltip-detail">
+                    <!-- MapleStory equipment style tooltip dynamically rendered -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 장비 판매 & 정산 관리 대시보드. Created for MapleStory Worlds equipment sales management.</p>
+        </footer>
+    </div>
+
+    <!-- Core Script -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Python scripts (dev tools only)
+*.py
+*.bak
+
+# Dev screenshots
+current_dashboard.png
+current_dashboard_state.png
+reference_view.png
+screenshot_after.png
+screenshot_before.png
+screenshot_current.png
+user_reference.png
+dashboard_final.png
+dashboard_cards.png
+dashboard_preview.png
+
+# Git internal
+.git/

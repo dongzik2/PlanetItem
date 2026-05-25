@@ -1517,6 +1517,8 @@ let activeTab = 'all';
 let viewMode = 'list';
 let searchQuery = '';
 let hideSoldOut = false;
+let headerSortCol = null;
+let headerSortDir = 'desc';
 
 // DOM Elements
 const elements = {
@@ -1656,9 +1658,35 @@ function bindEvents() {
         updateUI();
     });
     
-    // Sort
+    // Sort Dropdown
     elements.sortSelect.addEventListener('change', () => {
+        headerSortCol = null;
+        document.querySelectorAll('.sortable').forEach(h => h.classList.remove('active', 'asc', 'desc'));
         updateUI();
+    });
+
+    // Header Sort
+    document.querySelectorAll('.sortable').forEach(header => {
+        header.addEventListener('click', (e) => {
+            const sortCol = header.getAttribute('data-sort');
+            if (headerSortCol === sortCol) {
+                headerSortDir = headerSortDir === 'desc' ? 'asc' : 'desc';
+            } else {
+                headerSortCol = sortCol;
+                headerSortDir = 'desc';
+                if (sortCol === 'name' || sortCol === 'status' || sortCol === 'potential') {
+                    headerSortDir = 'asc'; // Alphabetical default
+                }
+            }
+            
+            // Update UI classes
+            document.querySelectorAll('.sortable').forEach(h => {
+                h.classList.remove('active', 'asc', 'desc');
+            });
+            header.classList.add('active', headerSortDir);
+            
+            updateUI();
+        });
     });
     
     // Tabs
@@ -1998,6 +2026,28 @@ function filterData() {
 
 // Sort Data
 function sortData(list) {
+    if (headerSortCol) {
+        return list.sort((a, b) => {
+            let valA, valB;
+            switch(headerSortCol) {
+                case 'name': valA = a.name; valB = b.name; break;
+                case 'stats': valA = a.stats.total; valB = b.stats.total; break;
+                case 'potential': valA = a.potential || ''; valB = b.potential || ''; break;
+                case 'price': valA = a.price; valB = b.price; break;
+                case 'status': valA = a.status; valB = b.status; break;
+                case 'expiry': 
+                    valA = parseDate(a.expiry); 
+                    valB = parseDate(b.expiry); 
+                    break;
+                default: valA = 0; valB = 0;
+            }
+            
+            if (valA < valB) return headerSortDir === 'asc' ? -1 : 1;
+            if (valA > valB) return headerSortDir === 'asc' ? 1 : -1;
+            return 0;
+        });
+    }
+
     const sortBy = elements.sortSelect.value;
     return list.sort((a, b) => {
         if (sortBy === 'price-desc') return b.price - a.price;

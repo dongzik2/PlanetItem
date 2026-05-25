@@ -1912,6 +1912,7 @@ function parseRawCSVAndApply(csvText) {
                     net_price: cleanInt(row[9]) || 0
                 });
             }
+        }
     }
     
     if (settlement.remittances && settlement.remittances.length > 0) {

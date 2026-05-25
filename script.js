@@ -135,9 +135,9 @@ const DEFAULT_DATA = {
                 },
                 "potential": "X",
                 "price": 1500000,
-                "status": "판매중",
+                "status": "판매완료",
                 "expiry": "26-05-27",
-                "net_price": 0
+                "net_price": 1350000
             },
             {
                 "category": "armor",
@@ -356,9 +356,9 @@ const DEFAULT_DATA = {
                 },
                 "potential": "X",
                 "price": 2500000,
-                "status": "판매중",
+                "status": "판매완료",
                 "expiry": "26-05-28",
-                "net_price": 0
+                "net_price": 2250000
             },
             {
                 "category": "armor",
@@ -780,7 +780,7 @@ const DEFAULT_DATA = {
                     "upgrades": 0
                 },
                 "potential": "X",
-                "price": 0,
+                "price": 10000000,
                 "status": "판매중",
                 "expiry": "26-05-28",
                 "net_price": 0
@@ -797,7 +797,7 @@ const DEFAULT_DATA = {
                     "upgrades": 0
                 },
                 "potential": "X",
-                "price": 0,
+                "price": 30000000,
                 "status": "판매중",
                 "expiry": "26-05-28",
                 "net_price": 0
@@ -814,7 +814,7 @@ const DEFAULT_DATA = {
                     "upgrades": 0
                 },
                 "potential": "X",
-                "price": 0,
+                "price": 15000000,
                 "status": "판매중",
                 "expiry": "26-05-28",
                 "net_price": 0
@@ -831,7 +831,7 @@ const DEFAULT_DATA = {
                     "upgrades": 0
                 },
                 "potential": "X",
-                "price": 0,
+                "price": 18000000,
                 "status": "판매중",
                 "expiry": "26-05-28",
                 "net_price": 0
@@ -848,7 +848,7 @@ const DEFAULT_DATA = {
                     "upgrades": 0
                 },
                 "potential": "X",
-                "price": 0,
+                "price": 25000000,
                 "status": "판매중",
                 "expiry": "26-05-28",
                 "net_price": 0
@@ -865,7 +865,7 @@ const DEFAULT_DATA = {
                     "upgrades": 0
                 },
                 "potential": "X",
-                "price": 0,
+                "price": 30000000,
                 "status": "판매중",
                 "expiry": "26-05-28",
                 "net_price": 0
@@ -882,7 +882,7 @@ const DEFAULT_DATA = {
                     "upgrades": 0
                 },
                 "potential": "X",
-                "price": 0,
+                "price": 100000000,
                 "status": "판매중",
                 "expiry": "26-05-28",
                 "net_price": 0
@@ -1155,9 +1155,9 @@ const DEFAULT_DATA = {
                 },
                 "potential": "X",
                 "price": 35000000,
-                "status": "판매중",
+                "status": "판매완료",
                 "expiry": "26-05-28",
-                "net_price": 0
+                "net_price": 31500000
             },
             {
                 "category": "weapon",
@@ -1291,9 +1291,9 @@ const DEFAULT_DATA = {
                 },
                 "potential": "미확인",
                 "price": 65000000,
-                "status": "판매중",
+                "status": "판매완료",
                 "expiry": "26-05-28",
-                "net_price": 0
+                "net_price": 58500000
             },
             {
                 "category": "weapon",
@@ -1359,26 +1359,26 @@ const DEFAULT_DATA = {
                 },
                 "potential": "미확인",
                 "price": 37000000,
-                "status": "판매중",
+                "status": "판매완료",
                 "expiry": "26-05-28",
-                "net_price": 0
+                "net_price": 33300000
             },
             {
                 "category": "weapon",
                 "name": "블러드 엠페러",
                 "stats": {
                     "str": 7,
-                    "dex": 9,
+                    "dex": 0,
                     "accuracy": 0,
-                    "total": 16,
+                    "total": 7,
                     "atk": 9,
                     "upgrades": 0
                 },
                 "potential": "미확인",
                 "price": 34000000,
-                "status": "판매중",
+                "status": "판매완료",
                 "expiry": "26-05-28",
-                "net_price": 0
+                "net_price": 30600000
             },
             {
                 "category": "weapon",
@@ -1399,10 +1399,10 @@ const DEFAULT_DATA = {
             }
         ],
         "settlement": {
-            "total_revenue": 710139999,
+            "total_revenue": 867639999,
             "remittance_1st": 231789200,
             "remittance_label": "택포 1차 송금액",
-            "remaining": 10300799,
+            "remaining": 167800799,
             "remittances": [
                 {
                     "date": "5/23 22:45",
@@ -1535,7 +1535,7 @@ function parseDate(dateStr) {
 }
 
 // Initialize Application
-const DATA_VERSION = 'v5';
+const DATA_VERSION = 'v6';
 function init() {
     // Set default input URL
     elements.inputSheetUrl.value = localStorage.getItem('sheet_url') || elements.inputSheetUrl.value;
@@ -1910,39 +1910,29 @@ function renderStats(filteredList) {
     elements.totalRevenue.innerText = formatMeso(totalAllRevenue);
     elements.netRevenue.innerText = formatMeso(netSoldRevenue);
     
-    // Settlement object might have overridden values from sheet bottom row
-    // Compute total remitted from remittances array (송금 항목만 합산)
-    let remitted = 0;
+    // 남은 금액: 시트의 remaining 값 직접 사용
     let remaining = currentData.settlement.remaining || 0;
     
+    // 정산액: '송금액' 라벨 항목들 합산
+    let remitted = 0;
     if (currentData.settlement.remittances && currentData.settlement.remittances.length > 0) {
-        // Sum only items labeled as '송금' (actual transfers, not purchases)
         const remittances = currentData.settlement.remittances;
-        const remittanceTotal = remittances
+        remitted = remittances
             .filter(r => r.label && r.label.includes('송금액'))
             .reduce((sum, r) => sum + r.amount, 0);
-        remitted = remittanceTotal > 0 ? remittanceTotal : (currentData.settlement.remittance_1st || 0);
-        
-        // Build label from latest 송금 entry
-        const latestRemittance = remittances.filter(r => r.label && r.label.includes('송금')).slice(-1)[0];
-        if (latestRemittance) {
-            elements.labelRemittance.innerText = `${latestRemittance.date} 최종 송금`;
-            elements.labelRemittanceDate.innerText = `총 ${remittances.filter(r => r.label && r.label.includes('송금액')).length}회 송금 완료`;
-        }
-    } else if (currentData.settlement.total_revenue) {
-        remitted = currentData.settlement.remittance_1st || 0;
-        if (currentData.settlement.remittance_label) {
-            elements.labelRemittance.innerText = currentData.settlement.remittance_label;
-        }
+        if (remitted === 0) remitted = currentData.settlement.remittance_1st || 0;
     } else {
-        remitted = netSoldRevenue;
-        elements.labelRemittance.innerText = "송금 완료 금액";
+        remitted = currentData.settlement.remittance_1st || netSoldRevenue;
     }
+    
+    // 카드 라벨: 항상 "정산액"으로 표시
+    elements.labelRemittance.innerText = '정산액';
+    elements.labelRemittanceDate.innerText = '정산 완료 후 송금된 금액';
     
     elements.remitted.innerText = formatMeso(remitted);
     elements.remaining.innerText = formatMeso(remaining);
     
-    // Progress calculation (remitted / (remitted + remaining))
+    // Progress calculation
     const totalRemittable = remitted + remaining;
     const progressPercent = totalRemittable > 0 ? Math.round((remitted / totalRemittable) * 100) : 0;
     

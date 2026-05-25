@@ -132,9 +132,9 @@
       },
       "potential": "X",
       "price": 1500000,
-      "status": "판매중",
+      "status": "판매완료",
       "expiry": "26-05-27",
-      "net_price": 0
+      "net_price": 1350000
     },
     {
       "category": "armor",
@@ -353,9 +353,9 @@
       },
       "potential": "X",
       "price": 2500000,
-      "status": "판매중",
+      "status": "판매완료",
       "expiry": "26-05-28",
-      "net_price": 0
+      "net_price": 2250000
     },
     {
       "category": "armor",
@@ -777,7 +777,7 @@
         "upgrades": 0
       },
       "potential": "X",
-      "price": 0,
+      "price": 10000000,
       "status": "판매중",
       "expiry": "26-05-28",
       "net_price": 0
@@ -794,7 +794,7 @@
         "upgrades": 0
       },
       "potential": "X",
-      "price": 0,
+      "price": 30000000,
       "status": "판매중",
       "expiry": "26-05-28",
       "net_price": 0
@@ -811,7 +811,7 @@
         "upgrades": 0
       },
       "potential": "X",
-      "price": 0,
+      "price": 15000000,
       "status": "판매중",
       "expiry": "26-05-28",
       "net_price": 0
@@ -828,7 +828,7 @@
         "upgrades": 0
       },
       "potential": "X",
-      "price": 0,
+      "price": 18000000,
       "status": "판매중",
       "expiry": "26-05-28",
       "net_price": 0
@@ -845,7 +845,7 @@
         "upgrades": 0
       },
       "potential": "X",
-      "price": 0,
+      "price": 25000000,
       "status": "판매중",
       "expiry": "26-05-28",
       "net_price": 0
@@ -862,7 +862,7 @@
         "upgrades": 0
       },
       "potential": "X",
-      "price": 0,
+      "price": 30000000,
       "status": "판매중",
       "expiry": "26-05-28",
       "net_price": 0
@@ -879,7 +879,7 @@
         "upgrades": 0
       },
       "potential": "X",
-      "price": 0,
+      "price": 100000000,
       "status": "판매중",
       "expiry": "26-05-28",
       "net_price": 0
@@ -1152,9 +1152,9 @@
       },
       "potential": "X",
       "price": 35000000,
-      "status": "판매중",
+      "status": "판매완료",
       "expiry": "26-05-28",
-      "net_price": 0
+      "net_price": 31500000
     },
     {
       "category": "weapon",
@@ -1288,9 +1288,9 @@
       },
       "potential": "미확인",
       "price": 65000000,
-      "status": "판매중",
+      "status": "판매완료",
       "expiry": "26-05-28",
-      "net_price": 0
+      "net_price": 58500000
     },
     {
       "category": "weapon",
@@ -1356,26 +1356,26 @@
       },
       "potential": "미확인",
       "price": 37000000,
-      "status": "판매중",
+      "status": "판매완료",
       "expiry": "26-05-28",
-      "net_price": 0
+      "net_price": 33300000
     },
     {
       "category": "weapon",
       "name": "블러드 엠페러",
       "stats": {
         "str": 7,
-        "dex": 9,
+        "dex": 0,
         "accuracy": 0,
-        "total": 16,
+        "total": 7,
         "atk": 9,
         "upgrades": 0
       },
       "potential": "미확인",
       "price": 34000000,
-      "status": "판매중",
+      "status": "판매완료",
       "expiry": "26-05-28",
-      "net_price": 0
+      "net_price": 30600000
     },
     {
       "category": "weapon",
@@ -1396,8 +1396,8 @@
     }
   ],
   "settlement": {
-    "total_revenue": 710139999,
-    "remaining": 10300799,
+    "total_revenue": 867639999,
+    "remaining": 167800799,
     "remittances": [
       {
         "date": "5/23 22:45",

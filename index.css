@@ -6,16 +6,23 @@
 }
 
 :root {
-    --bg-main: #c4d7ec; /* MapleStory light blue sky */
-    --bg-card: #e8e8e8; /* Window gray */
-    --bg-header: #1e5ab4; /* Royal blue header */
+    --bg-main: #d0dbe8; /* Soft misty blue for a better atmosphere */
+    --bg-card: #f4f6f9; /* Lighter premium gray-white */
+    --bg-header: #1e4585; /* Deeper atmospheric royal blue */
     --bg-input: #ffffff;
     
-    --border-color: #5d5d5d;
+    --border-color: #cbd5e1; /* softer border */
     --border-hover: #1e5ab4;
     
-    --color-text-main: #333333; /* Dark gray for light background readability */
-    --color-text-muted: #555555;
+    --color-text-main: #1e293b; /* Rich slate instead of harsh black */
+    --color-text-muted: #64748b;
+    
+    /* Missing variables mapped */
+    --text-primary: #0f172a; /* Very dark slate, rich and readable */
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --surface-primary: #ffffff;
+    --surface-secondary: #f8fafc;
     
     --accent-gold: #b87c00;
     --accent-gold-glow: rgba(184, 124, 0, 0.2);
@@ -32,12 +39,12 @@
     --transition-fast: 0.15s ease;
     --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     
-    --card-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
-    --card-shadow-hover: 4px 4px 0px rgba(0, 0, 0, 0.25);
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
     
-    --border-radius-sm: 4px;
-    --border-radius-md: 4px;
-    --border-radius-lg: 4px;
+    --border-radius-sm: 6px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 16px;
 }
 
 /* Pixel font rendering adjustments to prevent digit/character overlap and improve legibility */
@@ -1448,14 +1455,17 @@ body {
 
 /* Name column */
 .rl-col-name {
-    padding: 0 12px;
+    padding: 0 16px;
 }
 
 .rl-name {
-    font-size: 14px;
-    font-weight: 700;
+    font-family: var(--font-pixel);
+    font-size: 16px;
+    font-weight: normal; /* Pixel fonts often look better without bold */
     color: var(--text-primary);
     line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5); /* subtle glow/shadow for premium atmosphere */
 }
 
 /* Stats column */

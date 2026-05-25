@@ -1306,7 +1306,7 @@ body {
 /* Header Row */
 .rich-list-header {
     display: grid;
-    grid-template-columns: 64px 1.4fr 2.0fr 0.9fr 0.9fr 1.2fr 0.8fr 0.8fr;
+    grid-template-columns: 64px 1.4fr 3.2fr 0.9fr 1.2fr 0.8fr 0.8fr;
     align-items: center;
     gap: 0;
     padding: 0 20px;
@@ -1339,7 +1339,7 @@ body {
 /* Individual Row */
 .rich-list-row {
     display: grid;
-    grid-template-columns: 64px 1.4fr 2.0fr 0.9fr 0.9fr 1.2fr 0.8fr 0.8fr;
+    grid-template-columns: 64px 1.4fr 3.2fr 0.9fr 1.2fr 0.8fr 0.8fr;
     align-items: center;
     gap: 0;
     padding: 8px 20px;
@@ -1439,8 +1439,7 @@ body {
 }
 
 /* Stats column */
-.rl-col-stats,
-.rl-col-extra {
+.rl-col-stats {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;

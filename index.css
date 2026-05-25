@@ -14,13 +14,13 @@
     --border-color: rgba(255, 255, 255, 0.15); /* Softer translucent border */
     --border-hover: #f59e0b; /* Gold hover */
     
-    --color-text-main: #f8fafc; /* Crisp white for readability */
-    --color-text-muted: #94a3b8;
+    --color-text-main: #ffffff; /* Crisp white for readability */
+    --color-text-muted: #cbd5e1;
     
     /* Missing variables mapped */
     --text-primary: #ffffff; 
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
+    --text-secondary: #e2e8f0;
+    --text-muted: #cbd5e1;
     --surface-primary: #161e2b;
     --surface-secondary: #1e293b;
     

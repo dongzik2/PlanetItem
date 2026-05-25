@@ -1844,6 +1844,15 @@ function cleanInt(val) {
     return valClean ? parseInt(valClean, 10) : 0;
 }
 
+// 행에서 마지막 숫자값 추출 (마지막 열이 비어있어도 앞 열에서 찾음)
+function lastNumericInRow(row) {
+    for (let i = row.length - 1; i >= 0; i--) {
+        const v = cleanInt(row[i]);
+        if (v !== 0) return v;
+    }
+    return 0;
+}
+
 // Parse Raw CSV
 function parseRawCSVAndApply(csvText) {
     const lines = csvText.split('\n').map(line => {
@@ -1886,15 +1895,15 @@ function parseRawCSVAndApply(csvText) {
         // Settlement check
         const rowStr = row.join('');
         if (rowStr.includes('총 금액')) {
-            settlement.total_revenue = cleanInt(row[row.length - 1]);
+            settlement.total_revenue = lastNumericInRow(row);
             continue;
         }
         if (rowStr.includes('남은금액') || rowStr.includes('남은 금액')) {
-            settlement.remaining = cleanInt(row[row.length - 1]);
+            settlement.remaining = lastNumericInRow(row);
             continue;
         }
         if (rowStr.includes('받은 메소')) {
-            settlement.received_meso = cleanInt(row[row.length - 1]);
+            settlement.received_meso = lastNumericInRow(row);
             continue;
         }
         
@@ -1911,7 +1920,7 @@ function parseRawCSVAndApply(csvText) {
         if (hasDate) {
             const datePart = row[dateIdx].trim();
             const labelPart = (dateIdx + 1 < row.length) ? row[dateIdx + 1].trim() : '';
-            const amount = cleanInt(row[row.length - 1]);
+            const amount = lastNumericInRow(row);
             if (!settlement.remittances) {
                 settlement.remittances = [];
             }
@@ -2075,44 +2084,49 @@ function sortData(list) {
 
 // Render Statistics Card Calculations
 function renderStats(filteredList) {
-    // Total Revenue (Total registered values)
-    // We calculate from total values in currentData
+    // 총 판매 예정액: 전체 아이템 price 합계
     let totalAllRevenue = 0;
-    let netSoldRevenue = 0;
-    
     currentData.items.forEach(item => {
         totalAllRevenue += item.price;
-        if (item.status === '판매완료') {
-            netSoldRevenue += item.net_price || (item.price * 0.9); // default 10% fee if empty
-        }
     });
-
     elements.totalRevenue.innerText = formatMeso(totalAllRevenue);
+
+    // 판매 완료 금액: 시트 95행 '총 금액' 값 직접 사용 (받은메소 포함 실수령 합계)
+    // 시트 미동기화 시 아이템 net_price 합계로 폴백
+    let netSoldRevenue = currentData.settlement.total_revenue || 0;
+    if (!netSoldRevenue) {
+        currentData.items.forEach(item => {
+            if (item.status === '판매완료') {
+                netSoldRevenue += item.net_price || Math.round(item.price * 0.9);
+            }
+        });
+    }
     elements.netRevenue.innerText = formatMeso(netSoldRevenue);
-    
-    // 남은 금액: 시트의 remaining 값 직접 사용
+
+    // 미정산 남은 금액: 시트 104행 '남은금액' 값 직접 사용
     let remaining = currentData.settlement.remaining || 0;
-    
-    // 정산액: 시트의 모든 remittance 항목 합산 (택포 송금 + 혼줌 구매 + 세이브 등 전부)
+
+    // 정산액: 총금액(95행) - 남은금액(104행)을 우선 사용 (가장 신뢰성 높음)
+    // 파싱 실패 시 remittance 날짜 파싱 합산으로 폴백
     let remitted = 0;
-    if (currentData.settlement.remittances && currentData.settlement.remittances.length > 0) {
+    if (netSoldRevenue > 0 && remaining > 0) {
+        remitted = netSoldRevenue - remaining;
+    } else if (currentData.settlement.remittances && currentData.settlement.remittances.length > 0) {
         remitted = currentData.settlement.remittances
             .reduce((sum, r) => sum + (r.amount || 0), 0);
-    } else {
-        remitted = currentData.settlement.remittance_1st || 0;
     }
-    
-    // 카드 라벨: 항상 "정산액"으로 표시
+
+    // 카드 라벨
     elements.labelRemittance.innerText = '정산액';
     elements.labelRemittanceDate.innerText = '정산 완료 후 사용된 금액 합계';
-    
+
     elements.remitted.innerText = formatMeso(remitted);
     elements.remaining.innerText = formatMeso(remaining);
-    
+
     // Progress calculation
     const totalRemittable = remitted + remaining;
     const progressPercent = totalRemittable > 0 ? Math.round((remitted / totalRemittable) * 100) : 0;
-    
+
     elements.progressPercentage.innerText = progressPercent + '%';
     elements.progressBarFill.style.width = progressPercent + '%';
     elements.progressRemitted.innerText = formatMeso(remitted) + ' 메소';

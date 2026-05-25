@@ -2165,8 +2165,8 @@ function renderList(list) {
 
         const hasAtk = item.stats.atk > 0;
         const extraStat = hasAtk
-            ? `<span class="rl-stat-chip atk">업횟 <strong>${item.stats.upgrades}</strong></span><span class="rl-stat-chip atk">공${item.stats.atk}</span>`
-            : `<span class="rl-stat-chip acc">명중 <strong>${item.stats.accuracy || 0}</strong></span>`;
+            ? `<span class="rl-stat-chip atk">업횟 <strong>${item.stats.upgrades}</strong></span><span class="rl-stat-chip atk">공격력 <strong>${item.stats.atk}</strong></span>`
+            : ``;
 
         let potentialLabel = '잠재 없음';
         let potentialClass = 'pot-none';
@@ -2188,9 +2188,10 @@ function renderList(list) {
                 <span class="rl-name">${item.name}</span>
             </div>
             <div class="rl-col-stats">
-                <span class="rl-stat-chip">합 <strong>${item.stats.total}</strong></span>
                 <span class="rl-stat-chip">STR <strong>${item.stats.str}</strong></span>
                 <span class="rl-stat-chip">DEX <strong>${item.stats.dex}</strong></span>
+                <span class="rl-stat-chip acc">명중 <strong>${item.stats.accuracy || 0}</strong></span>
+                <span class="rl-stat-chip highlight">합스탯 <strong>${item.stats.total}</strong></span>
             </div>
             <div class="rl-col-extra">${extraStat}</div>
             <div class="rl-col-potential">

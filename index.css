@@ -1306,7 +1306,7 @@ body {
 /* Header Row */
 .rich-list-header {
     display: grid;
-    grid-template-columns: 64px 1.8fr 1.4fr 0.9fr 0.9fr 1.2fr 0.8fr 0.8fr;
+    grid-template-columns: 64px 1.4fr 2.0fr 0.9fr 0.9fr 1.2fr 0.8fr 0.8fr;
     align-items: center;
     gap: 0;
     padding: 0 20px;
@@ -1339,7 +1339,7 @@ body {
 /* Individual Row */
 .rich-list-row {
     display: grid;
-    grid-template-columns: 64px 1.8fr 1.4fr 0.9fr 0.9fr 1.2fr 0.8fr 0.8fr;
+    grid-template-columns: 64px 1.4fr 2.0fr 0.9fr 0.9fr 1.2fr 0.8fr 0.8fr;
     align-items: center;
     gap: 0;
     padding: 8px 20px;
@@ -1370,12 +1370,22 @@ body {
 }
 
 .rich-list-row.row-sold {
-    opacity: 0.6;
-    background: rgba(0,0,0,0.02);
+    opacity: 0.55;
+    background: rgba(0,0,0,0.06);
+    filter: grayscale(85%);
 }
 
 .rich-list-row.row-sold:hover {
-    opacity: 0.8;
+    opacity: 0.75;
+}
+
+.rich-list-row.row-sold .rl-name {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+}
+
+.rich-list-row.row-sold .rl-price {
+    color: var(--color-text-muted);
 }
 
 /* Image column */
@@ -1474,6 +1484,16 @@ body {
 
 .rl-stat-chip.acc strong {
     color: #2563eb;
+}
+
+.rl-stat-chip.highlight {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+    color: var(--accent-gold);
+}
+
+.rl-stat-chip.highlight strong {
+    color: var(--accent-gold);
 }
 
 /* Potential column */

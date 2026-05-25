@@ -1682,8 +1682,14 @@ function bindEvents() {
             // Update UI classes
             document.querySelectorAll('.sortable').forEach(h => {
                 h.classList.remove('active', 'asc', 'desc');
+                const icon = h.querySelector('.sort-icon');
+                if (icon) icon.className = 'fa-solid fa-sort sort-icon';
             });
             header.classList.add('active', headerSortDir);
+            const activeIcon = header.querySelector('.sort-icon');
+            if (activeIcon) {
+                activeIcon.className = `fa-solid fa-sort-${headerSortDir === 'asc' ? 'up' : 'down'} sort-icon`;
+            }
             
             updateUI();
         });
@@ -1705,12 +1711,16 @@ function bindEvents() {
         elements.toggleActiveOnly.addEventListener('click', () => {
             hideSoldOut = !hideSoldOut;
             if (hideSoldOut) {
-                elements.activeOnlyIcon.classList.remove('fa-toggle-off');
-                elements.activeOnlyIcon.classList.add('fa-toggle-on');
-                elements.activeOnlyIcon.style.color = 'var(--color-primary)';
+                elements.toggleActiveOnly.style.borderColor = 'var(--accent-blue)';
+                elements.toggleActiveOnly.style.color = 'var(--accent-blue)';
+                elements.activeOnlyIcon.classList.remove('fa-filter');
+                elements.activeOnlyIcon.classList.add('fa-filter-circle-xmark');
+                elements.activeOnlyIcon.style.color = 'var(--accent-blue)';
             } else {
-                elements.activeOnlyIcon.classList.remove('fa-toggle-on');
-                elements.activeOnlyIcon.classList.add('fa-toggle-off');
+                elements.toggleActiveOnly.style.borderColor = 'var(--border-color)';
+                elements.toggleActiveOnly.style.color = 'var(--color-text-main)';
+                elements.activeOnlyIcon.classList.remove('fa-filter-circle-xmark');
+                elements.activeOnlyIcon.classList.add('fa-filter');
                 elements.activeOnlyIcon.style.color = 'var(--color-text-muted)';
             }
             updateUI();
@@ -2246,7 +2256,10 @@ function renderList(list) {
             if (item.potential.includes('레어')) { potentialLabel = '레어 잠재'; potentialClass = 'pot-rare'; }
             else if (item.potential.includes('에픽')) { potentialLabel = '에픽 잠재'; potentialClass = 'pot-epic'; }
             else if (item.potential.includes('유니크')) { potentialLabel = '유니크 잠재'; potentialClass = 'pot-unique'; }
+            else if (item.potential.includes('미확인')) { potentialLabel = '잠재 미확인'; potentialClass = 'pot-unid'; }
             else { potentialLabel = '잠재 있음'; potentialClass = 'pot-yes'; }
+        } else if (potValue === '미확인') {
+            potentialLabel = '잠재 미확인'; potentialClass = 'pot-unid';
         }
 
         const statusClass = item.status === '판매중' ? 'status-active' : 'status-sold';

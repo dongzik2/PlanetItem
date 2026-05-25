@@ -1516,6 +1516,7 @@ let currentData = JSON.parse(JSON.stringify(DEFAULT_DATA));
 let activeTab = 'all';
 let viewMode = 'list';
 let searchQuery = '';
+let hideSoldOut = false;
 
 // DOM Elements
 const elements = {
@@ -1537,6 +1538,8 @@ const elements = {
     sortSelect: document.getElementById('sort-select'),
     viewGrid: document.getElementById('view-grid'),
     viewList: document.getElementById('view-list'),
+    toggleActiveOnly: document.getElementById('toggle-active-only'),
+    activeOnlyIcon: document.getElementById('active-only-icon'),
     
     itemsGrid: document.getElementById('items-grid'),
     itemsListContainer: document.getElementById('items-list-container'),
@@ -1668,6 +1671,23 @@ function bindEvents() {
             updateUI();
         });
     });
+
+    // Toggle Active Only
+    if (elements.toggleActiveOnly) {
+        elements.toggleActiveOnly.addEventListener('click', () => {
+            hideSoldOut = !hideSoldOut;
+            if (hideSoldOut) {
+                elements.activeOnlyIcon.classList.remove('fa-toggle-off');
+                elements.activeOnlyIcon.classList.add('fa-toggle-on');
+                elements.activeOnlyIcon.style.color = 'var(--color-primary)';
+            } else {
+                elements.activeOnlyIcon.classList.remove('fa-toggle-on');
+                elements.activeOnlyIcon.classList.add('fa-toggle-off');
+                elements.activeOnlyIcon.style.color = 'var(--color-text-muted)';
+            }
+            updateUI();
+        });
+    }
     
     // View Toggle
     elements.viewGrid.addEventListener('click', () => {
@@ -1954,6 +1974,9 @@ function filterData() {
         if (activeTab === 'armor' && item.category !== 'armor' && item.category !== 'weapon') return false;
         if (activeTab === 'active' && item.status !== '판매중') return false;
         if (activeTab === 'sold' && item.status !== '판매완료') return false;
+        
+        // Hide Sold Out Toggle
+        if (hideSoldOut && item.status !== '판매중') return false;
         
         // Search Filter
         if (searchQuery) {

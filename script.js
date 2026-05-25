@@ -2,716 +2,1451 @@
 
 // Initial static data loaded from CSV
 const DEFAULT_DATA = {
-    "items": [
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 15,
-                "dex": 3,
-                "accuracy": 0,
-                "total": 18,
-                "atk": 0,
-                "upgrades": 0
+        "items": [
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 15,
+                    "dex": 3,
+                    "accuracy": 0,
+                    "total": 18,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 900000
             },
-            "potential": "X",
-            "price": 1500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 6,
-                "dex": 11,
-                "accuracy": 4,
-                "total": 21,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 6,
+                    "dex": 11,
+                    "accuracy": 4,
+                    "total": 21,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1000000,
+                "status": "판매중",
+                "expiry": "26-05-27",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 1500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 11,
-                "dex": 7,
-                "accuracy": 2,
-                "total": 20,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 11,
+                    "dex": 7,
+                    "accuracy": 2,
+                    "total": 20,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 900000
             },
-            "potential": "X",
-            "price": 1500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 11,
-                "dex": 7,
-                "accuracy": 3,
-                "total": 21,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 11,
+                    "dex": 7,
+                    "accuracy": 3,
+                    "total": 21,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1500000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 1350000
             },
-            "potential": "X",
-            "price": 1500000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 1350000
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 13,
-                "dex": 1,
-                "accuracy": 5,
-                "total": 19,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 1,
+                    "accuracy": 5,
+                    "total": 19,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1500000,
+                "status": "판매중",
+                "expiry": "26-05-27",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 1500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 11,
-                "dex": 5,
-                "accuracy": 5,
-                "total": 21,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 11,
+                    "dex": 5,
+                    "accuracy": 5,
+                    "total": 21,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 900000
             },
-            "potential": "X",
-            "price": 2000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 13,
-                "dex": 2,
-                "accuracy": 5,
-                "total": 20,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 2,
+                    "accuracy": 5,
+                    "total": 20,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 2000000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 1800000
             },
-            "potential": "X",
-            "price": 2000000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 1800000
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 14,
-                "dex": 6,
-                "accuracy": 0,
-                "total": 20,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 14,
+                    "dex": 6,
+                    "accuracy": 0,
+                    "total": 20,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1500000,
+                "status": "판매중",
+                "expiry": "26-05-27",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 2000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 12,
-                "dex": 5,
-                "accuracy": 5,
-                "total": 22,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 12,
+                    "dex": 5,
+                    "accuracy": 5,
+                    "total": 22,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 2500000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 2250000
             },
-            "potential": "X",
-            "price": 2500000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 2250000
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 13,
-                "dex": 4,
-                "accuracy": 4,
-                "total": 21,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 4,
+                    "accuracy": 4,
+                    "total": 21,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1500000,
+                "status": "판매중",
+                "expiry": "26-05-27",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 2500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 14,
-                "dex": 5,
-                "accuracy": 2,
-                "total": 21,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 14,
+                    "dex": 5,
+                    "accuracy": 2,
+                    "total": 21,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1500000,
+                "status": "판매중",
+                "expiry": "26-05-27",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 2500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 15,
-                "dex": 1,
-                "accuracy": 5,
-                "total": 21,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 15,
+                    "dex": 1,
+                    "accuracy": 5,
+                    "total": 21,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1500000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 1350000
             },
-            "potential": "X",
-            "price": 2500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 12,
-                "dex": 11,
-                "accuracy": 0,
-                "total": 23,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 12,
+                    "dex": 11,
+                    "accuracy": 0,
+                    "total": 23,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 2700000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 2430000
             },
-            "potential": "X",
-            "price": 2700000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 2430000
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 8,
-                "dex": 5,
-                "accuracy": 10,
-                "total": 23,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 8,
+                    "dex": 5,
+                    "accuracy": 10,
+                    "total": 23,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "O",
+                "price": 2500000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 2250000
             },
-            "potential": "X",
-            "price": 3000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 12,
-                "dex": 7,
-                "accuracy": 4,
-                "total": 23,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 12,
+                    "dex": 7,
+                    "accuracy": 4,
+                    "total": 23,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 2000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 1800000
             },
-            "potential": "X",
-            "price": 3000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 15,
-                "dex": 5,
-                "accuracy": 2,
-                "total": 22,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 15,
+                    "dex": 5,
+                    "accuracy": 2,
+                    "total": 22,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 3000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 2700000
             },
-            "potential": "X",
-            "price": 4000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 14,
-                "dex": 9,
-                "accuracy": 0,
-                "total": 23,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 14,
+                    "dex": 9,
+                    "accuracy": 0,
+                    "total": 23,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 3000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 2700000
             },
-            "potential": "X",
-            "price": 4000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 16,
-                "dex": 5,
-                "accuracy": 2,
-                "total": 23,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 16,
+                    "dex": 5,
+                    "accuracy": 2,
+                    "total": 23,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 4500000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 4050000
             },
-            "potential": "X",
-            "price": 4500000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 4050000
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 16,
-                "dex": 2,
-                "accuracy": 1,
-                "total": 19,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 16,
+                    "dex": 2,
+                    "accuracy": 1,
+                    "total": 19,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 2500000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 4500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 16,
-                "dex": 4,
-                "accuracy": 0,
-                "total": 20,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 16,
+                    "dex": 4,
+                    "accuracy": 0,
+                    "total": 20,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 3000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 2700000
             },
-            "potential": "X",
-            "price": 4500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 16,
-                "dex": 3,
-                "accuracy": 1,
-                "total": 20,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 16,
+                    "dex": 3,
+                    "accuracy": 1,
+                    "total": 20,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 2500000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 5000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 16,
-                "dex": 5,
-                "accuracy": 3,
-                "total": 24,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 16,
+                    "dex": 5,
+                    "accuracy": 3,
+                    "total": 24,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 5000000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 4500000
             },
-            "potential": "X",
-            "price": 5000000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 4500000
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 13,
-                "dex": 5,
-                "accuracy": 8,
-                "total": 26,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 5,
+                    "accuracy": 8,
+                    "total": 26,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 5500000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 9999999,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 17,
-                "dex": 5,
-                "accuracy": 0,
-                "total": 22,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 17,
+                    "dex": 5,
+                    "accuracy": 0,
+                    "total": 22,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 7000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 6300000
             },
-            "potential": "X",
-            "price": 9999999,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 16,
-                "dex": 8,
-                "accuracy": 0,
-                "total": 24,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 16,
+                    "dex": 8,
+                    "accuracy": 0,
+                    "total": 24,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 9900000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 8910000
             },
-            "potential": "X",
-            "price": 15000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 15,
-                "dex": 7,
-                "accuracy": 3,
-                "total": 25,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 15,
+                    "dex": 7,
+                    "accuracy": 3,
+                    "total": 25,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 12000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 10800000
             },
-            "potential": "X",
-            "price": 18000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 14,
-                "dex": 10,
-                "accuracy": 3,
-                "total": 27,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 14,
+                    "dex": 10,
+                    "accuracy": 3,
+                    "total": 27,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 19000000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 17100000
             },
-            "potential": "X",
-            "price": 19000000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 17100000
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 18,
-                "dex": 7,
-                "accuracy": 0,
-                "total": 25,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 18,
+                    "dex": 7,
+                    "accuracy": 0,
+                    "total": 25,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 25000000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 22500000
             },
-            "potential": "X",
-            "price": 25000000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 22500000
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 15,
-                "dex": 9,
-                "accuracy": 3,
-                "total": 27,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 15,
+                    "dex": 9,
+                    "accuracy": 3,
+                    "total": 27,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 17000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 30000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 10,
-                "dex": 14,
-                "accuracy": 4,
-                "total": 28,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 10,
+                    "dex": 14,
+                    "accuracy": 4,
+                    "total": 28,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 15000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 32000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 13,
-                "dex": 11,
-                "accuracy": 5,
-                "total": 29,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 11,
+                    "accuracy": 5,
+                    "total": 29,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 23000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 20700000
             },
-            "potential": "X",
-            "price": 33000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 17,
-                "dex": 3,
-                "accuracy": 8,
-                "total": 28,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 17,
+                    "dex": 3,
+                    "accuracy": 8,
+                    "total": 28,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 25000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 22500000
             },
-            "potential": "X",
-            "price": 35000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 19,
-                "dex": 6,
-                "accuracy": 6,
-                "total": 31,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 19,
+                    "dex": 6,
+                    "accuracy": 6,
+                    "total": 31,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 39000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 35100000
             },
-            "potential": "X",
-            "price": 57000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 17,
-                "dex": 8,
-                "accuracy": 7,
-                "total": 32,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 17,
+                    "dex": 8,
+                    "accuracy": 7,
+                    "total": 32,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 45000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 64000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 13,
-                "dex": 10,
-                "accuracy": 14,
-                "total": 37,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 10,
+                    "accuracy": 14,
+                    "total": 37,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 60000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 85000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스",
-            "stats": {
-                "str": 13,
-                "dex": 9,
-                "accuracy": 16,
-                "total": 38,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 9,
+                    "accuracy": 16,
+                    "total": 38,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 60000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "X",
-            "price": 85000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스 바지",
-            "stats": {
-                "str": 7,
-                "dex": 4,
-                "accuracy": 7,
-                "total": 18,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스 바지",
+                "stats": {
+                    "str": 7,
+                    "dex": 4,
+                    "accuracy": 7,
+                    "total": 18,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 4500000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
             },
-            "potential": "미확인",
-            "price": 8000000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "armor",
-            "name": "블루 네오스 바지",
-            "stats": {
-                "str": 4,
-                "dex": 9,
-                "accuracy": 6,
-                "total": 19,
-                "atk": 0,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스 바지",
+                "stats": {
+                    "str": 4,
+                    "dex": 9,
+                    "accuracy": 6,
+                    "total": 19,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 6000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 5400000
             },
-            "potential": "미확인",
-            "price": 8500000,
-            "status": "판매중",
-            "expiry": "26-05-26",
-            "net_price": 0
-        },
-        {
-            "category": "weapon",
-            "name": "그린 코르뱅",
-            "stats": {
-                "str": 2,
-                "dex": 4,
-                "accuracy": 0,
-                "total": 6,
-                "atk": 10,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 8,
+                    "accuracy": 0,
+                    "total": 21,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 1500000,
+                "status": "판매중",
+                "expiry": "26-05-27",
+                "net_price": 0
             },
-            "potential": "레어",
-            "price": 64000000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 57600000
-        },
-        {
-            "category": "weapon",
-            "name": "블루 코르뱅",
-            "stats": {
-                "str": 1,
-                "dex": 9,
-                "accuracy": 0,
-                "total": 10,
-                "atk": 10,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 13,
+                    "dex": 7,
+                    "accuracy": 3,
+                    "total": 23,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 2000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 1800000
             },
-            "potential": "미확인",
-            "price": 65000000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 58500000
-        },
-        {
-            "category": "weapon",
-            "name": "다크 엠페러",
-            "stats": {
-                "str": 3,
-                "dex": 9,
-                "accuracy": 0,
-                "total": 12,
-                "atk": 10,
-                "upgrades": 0
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 11,
+                    "dex": 10,
+                    "accuracy": 5,
+                    "total": 26,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 4999999,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 4499999
             },
-            "potential": "미확인",
-            "price": 68000000,
-            "status": "판매완료",
-            "expiry": "26-05-26",
-            "net_price": 61200000
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 11,
+                    "dex": 9,
+                    "accuracy": 7,
+                    "total": 27,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 7500000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 8,
+                    "dex": 8,
+                    "accuracy": 8,
+                    "total": 24,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 3000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 2700000
+            },
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 15,
+                    "dex": 1,
+                    "accuracy": 7,
+                    "total": 23,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 2500000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 2250000
+            },
+            {
+                "category": "armor",
+                "name": "블루 네오스",
+                "stats": {
+                    "str": 11,
+                    "dex": 9,
+                    "accuracy": 4,
+                    "total": 24,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 3000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 2700000
+            },
+            {
+                "category": "armor",
+                "name": "블루 드래곤 부츠",
+                "stats": {
+                    "str": 13,
+                    "dex": 2,
+                    "accuracy": 3,
+                    "total": 18,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 0,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "armor",
+                "name": "블루 드래곤 부츠",
+                "stats": {
+                    "str": 12,
+                    "dex": 7,
+                    "accuracy": 5,
+                    "total": 24,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 0,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "armor",
+                "name": "블루 드래곤 부츠",
+                "stats": {
+                    "str": 10,
+                    "dex": 7,
+                    "accuracy": 6,
+                    "total": 23,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 0,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "armor",
+                "name": "블루 드래곤 부츠",
+                "stats": {
+                    "str": 7,
+                    "dex": 11,
+                    "accuracy": 8,
+                    "total": 26,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 0,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "armor",
+                "name": "블루 드래곤 부츠",
+                "stats": {
+                    "str": 10,
+                    "dex": 13,
+                    "accuracy": 6,
+                    "total": 29,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 0,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "armor",
+                "name": "블루 드래곤 부츠",
+                "stats": {
+                    "str": 2,
+                    "dex": 8,
+                    "accuracy": 19,
+                    "total": 29,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 0,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "armor",
+                "name": "블루 드래곤 부츠",
+                "stats": {
+                    "str": 13,
+                    "dex": 12,
+                    "accuracy": 9,
+                    "total": 34,
+                    "atk": 0,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 0,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "그린 코르뱅",
+                "stats": {
+                    "str": 2,
+                    "dex": 4,
+                    "accuracy": 0,
+                    "total": 6,
+                    "atk": 10,
+                    "upgrades": 0
+                },
+                "potential": "레어",
+                "price": 64000000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 57600000
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 1,
+                    "dex": 9,
+                    "accuracy": 0,
+                    "total": 10,
+                    "atk": 10,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 65000000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 58500000
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 3,
+                    "dex": 9,
+                    "accuracy": 0,
+                    "total": 12,
+                    "atk": 10,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 68000000,
+                "status": "판매완료",
+                "expiry": "26-05-26",
+                "net_price": 61200000
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 0,
+                    "dex": 5,
+                    "accuracy": 0,
+                    "total": 5,
+                    "atk": 10,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 65000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 58500000
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 0,
+                    "dex": 6,
+                    "accuracy": 0,
+                    "total": 6,
+                    "atk": 10,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 63000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 56700000
+            },
+            {
+                "category": "weapon",
+                "name": "블러드 엠페러",
+                "stats": {
+                    "str": 0,
+                    "dex": 4,
+                    "accuracy": 0,
+                    "total": 4,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 28000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 25200000
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 3,
+                    "dex": 6,
+                    "accuracy": 0,
+                    "total": 9,
+                    "atk": 8,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 24000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 21600000
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 7,
+                    "dex": 7,
+                    "accuracy": 0,
+                    "total": 14,
+                    "atk": 10,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 65000000,
+                "status": "판매완료",
+                "expiry": "26-05-28",
+                "net_price": 58500000
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 10,
+                    "dex": 9,
+                    "accuracy": 0,
+                    "total": 19,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 35000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 31500000
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 10,
+                    "dex": 13,
+                    "accuracy": 0,
+                    "total": 23,
+                    "atk": 8,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 30000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 27000000
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 5,
+                    "dex": 11,
+                    "accuracy": 0,
+                    "total": 16,
+                    "atk": 8,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 20000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 18000000
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 9,
+                    "dex": 3,
+                    "accuracy": 0,
+                    "total": 12,
+                    "atk": 8,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 20000000,
+                "status": "판매완료",
+                "expiry": "26-05-27",
+                "net_price": 18000000
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 5,
+                    "dex": 2,
+                    "accuracy": 0,
+                    "total": 7,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 33000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 3,
+                    "dex": 4,
+                    "accuracy": 0,
+                    "total": 7,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 36000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블러드 엠페러",
+                "stats": {
+                    "str": 0,
+                    "dex": 4,
+                    "accuracy": 0,
+                    "total": 4,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 34000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 6,
+                    "dex": 5,
+                    "accuracy": 0,
+                    "total": 11,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 35000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 6,
+                    "dex": 7,
+                    "accuracy": 0,
+                    "total": 13,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 35000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 4,
+                    "dex": 0,
+                    "accuracy": 0,
+                    "total": 4,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "X",
+                "price": 32000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 7,
+                    "dex": 0,
+                    "accuracy": 0,
+                    "total": 7,
+                    "atk": 12,
+                    "upgrades": 0
+                },
+                "potential": "레어",
+                "price": 250000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 2,
+                    "dex": 0,
+                    "accuracy": 0,
+                    "total": 2,
+                    "atk": 12,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 240000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "다크 엠페러",
+                "stats": {
+                    "str": 6,
+                    "dex": 0,
+                    "accuracy": 0,
+                    "total": 6,
+                    "atk": 11,
+                    "upgrades": 0
+                },
+                "potential": "유니크 15%",
+                "price": 175000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 5,
+                    "dex": 9,
+                    "accuracy": 0,
+                    "total": 14,
+                    "atk": 11,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 140000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 5,
+                    "dex": 13,
+                    "accuracy": 0,
+                    "total": 18,
+                    "atk": 11,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 180000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 9,
+                    "dex": 10,
+                    "accuracy": 0,
+                    "total": 19,
+                    "atk": 10,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 65000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 3,
+                    "dex": 1,
+                    "accuracy": 0,
+                    "total": 4,
+                    "atk": 10,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 64000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "그린 코르뱅",
+                "stats": {
+                    "str": 11,
+                    "dex": 0,
+                    "accuracy": 0,
+                    "total": 11,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 35000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블루 코르뱅",
+                "stats": {
+                    "str": 4,
+                    "dex": 3,
+                    "accuracy": 0,
+                    "total": 7,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 34000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "그린 코르뱅",
+                "stats": {
+                    "str": 8,
+                    "dex": 8,
+                    "accuracy": 0,
+                    "total": 16,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 37000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "블러드 엠페러",
+                "stats": {
+                    "str": 7,
+                    "dex": 9,
+                    "accuracy": 0,
+                    "total": 16,
+                    "atk": 9,
+                    "upgrades": 0
+                },
+                "potential": "미확인",
+                "price": 34000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            },
+            {
+                "category": "weapon",
+                "name": "잔해물 장갑들",
+                "stats": {
+                    "str": 0,
+                    "dex": 0,
+                    "accuracy": 0,
+                    "total": 0,
+                    "atk": 8,
+                    "upgrades": 0
+                },
+                "potential": "",
+                "price": 80000000,
+                "status": "판매중",
+                "expiry": "26-05-28",
+                "net_price": 0
+            }
+        ],
+        "settlement": {
+            "total_revenue": 710139999,
+            "remittance_1st": 231789200,
+            "remittance_label": "택포 1차 송금액",
+            "remaining": 10300799,
+            "remittances": [
+                {
+                    "date": "5/23 22:45",
+                    "label": "택포 1차 송금액",
+                    "amount": 231789200
+                },
+                {
+                    "date": "5/24 14:25",
+                    "label": "혼줌 45장 구매",
+                    "amount": 80550000
+                },
+                {
+                    "date": "5/24 15:45",
+                    "label": "혼줌 50장 구매",
+                    "amount": 87500000
+                },
+                {
+                    "date": "5/24 23:05",
+                    "label": "택포 2차 송금액",
+                    "amount": 120000000
+                },
+                {
+                    "date": "5/24 23:05",
+                    "label": "5천 세이브",
+                    "amount": 50000000
+                },
+                {
+                    "date": "5/25 8:58",
+                    "label": "혼줌 50장 구매",
+                    "amount": 80000000
+                },
+                {
+                    "date": "5/25 8:58",
+                    "label": "장공 20장(잔해물)",
+                    "amount": 50000000
+                }
+            ],
+            "received_meso": 22000000
         }
-    ],
-    "settlement": {
-        "total_revenue": 233280000,
-        "remittance_1st": 231789200,
-        "remittance_label": "택포 1차 송금액",
-        "remaining": 1490800
-    }
-};
+    };
 
 let currentData = JSON.parse(JSON.stringify(DEFAULT_DATA));
 let activeTab = 'all';
-let viewMode = 'grid';
+let viewMode = 'list';
 let searchQuery = '';
 
 // DOM Elements
@@ -771,12 +1506,17 @@ function formatMeso(val) {
 function getItemImagePath(name) {
     const imageMap = {
         '그린 코르뱅': '그린 코르뱅.png',
+        '그린 코르뱅 ': '그린 코르뱅.png',
         '다크 엠페러': '다크 엠페러.png',
+        '블러드 엠페러': '블러드 엠페러.png',
         '블루 네오스 바지': '블루 네오스 바지.png',
         '블루 네오스': '블루 네오스.png',
-        '블루 코르뱅': '블루 코르뱅.png'
+        '블루 코르뱅': '블루 코르뱅.png',
+        '블루 코르뱅 ': '블루 코르뱅.png',
+        '블루 드래곤 부츠': '블루 드래곤 부츠.png'
     };
-    return imageMap[name] || null;
+    // Trim name for lookup
+    return imageMap[name] || imageMap[name.trim()] || null;
 }
 
 // Convert String Dates or keys
@@ -795,9 +1535,17 @@ function parseDate(dateStr) {
 }
 
 // Initialize Application
+const DATA_VERSION = 'v5';
 function init() {
     // Set default input URL
     elements.inputSheetUrl.value = localStorage.getItem('sheet_url') || elements.inputSheetUrl.value;
+    
+    // Version check - clear cache if outdated
+    const storedVersion = localStorage.getItem('maple_ledger_version');
+    if (storedVersion !== DATA_VERSION) {
+        localStorage.removeItem('maple_ledger_data');
+        localStorage.setItem('maple_ledger_version', DATA_VERSION);
+    }
     
     // Load from LocalStorage if exists
     const storedData = localStorage.getItem('maple_ledger_data');
@@ -1091,30 +1839,22 @@ function updateUI() {
     const sorted = sortData(filtered);
     
     renderStats(sorted);
-    
-    // Render count badges in tabs
     renderTabCounts();
     
     if (sorted.length === 0) {
         elements.emptyState.style.display = 'block';
-        elements.itemsGrid.innerHTML = '';
         elements.itemsTableBody.innerHTML = '';
     } else {
         elements.emptyState.style.display = 'none';
-        if (viewMode === 'grid') {
-            renderGrid(sorted);
-        } else {
-            renderList(sorted);
-        }
+        renderList(sorted);
     }
 }
 
 // Filter Data
 function filterData() {
     return currentData.items.filter(item => {
-        // Tab Filter
-        if (activeTab === 'armor' && item.category !== 'armor') return false;
-        if (activeTab === 'weapon' && item.category !== 'weapon') return false;
+        // Tab Filter - weapon category is treated same as armor (no weapon tab)
+        if (activeTab === 'armor' && item.category !== 'armor' && item.category !== 'weapon') return false;
         if (activeTab === 'active' && item.status !== '판매중') return false;
         if (activeTab === 'sold' && item.status !== '판매완료') return false;
         
@@ -1171,26 +1911,38 @@ function renderStats(filteredList) {
     elements.netRevenue.innerText = formatMeso(netSoldRevenue);
     
     // Settlement object might have overridden values from sheet bottom row
-    let remitted = currentData.settlement.remittance_1st || netSoldRevenue; // Fallback to all net revenue if sheet not updated
-    let remaining = currentData.settlement.remaining || (netSoldRevenue - remitted);
+    // Compute total remitted from remittances array (송금 항목만 합산)
+    let remitted = 0;
+    let remaining = currentData.settlement.remaining || 0;
     
-    // If we have custom settlement total_revenue, let's respect that
-    if (currentData.settlement.total_revenue) {
-        // Use custom values
+    if (currentData.settlement.remittances && currentData.settlement.remittances.length > 0) {
+        // Sum only items labeled as '송금' (actual transfers, not purchases)
+        const remittances = currentData.settlement.remittances;
+        const remittanceTotal = remittances
+            .filter(r => r.label && r.label.includes('송금액'))
+            .reduce((sum, r) => sum + r.amount, 0);
+        remitted = remittanceTotal > 0 ? remittanceTotal : (currentData.settlement.remittance_1st || 0);
+        
+        // Build label from latest 송금 entry
+        const latestRemittance = remittances.filter(r => r.label && r.label.includes('송금')).slice(-1)[0];
+        if (latestRemittance) {
+            elements.labelRemittance.innerText = `${latestRemittance.date} 최종 송금`;
+            elements.labelRemittanceDate.innerText = `총 ${remittances.filter(r => r.label && r.label.includes('송금액')).length}회 송금 완료`;
+        }
+    } else if (currentData.settlement.total_revenue) {
         remitted = currentData.settlement.remittance_1st || 0;
-        remaining = currentData.settlement.remaining || 0;
+        if (currentData.settlement.remittance_label) {
+            elements.labelRemittance.innerText = currentData.settlement.remittance_label;
+        }
+    } else {
+        remitted = netSoldRevenue;
+        elements.labelRemittance.innerText = "송금 완료 금액";
     }
     
     elements.remitted.innerText = formatMeso(remitted);
     elements.remaining.innerText = formatMeso(remaining);
     
-    if (currentData.settlement.remittance_label) {
-        elements.labelRemittance.innerText = currentData.settlement.remittance_label;
-    } else {
-        elements.labelRemittance.innerText = "송금 완료 금액";
-    }
-    
-    // Progress calculation
+    // Progress calculation (remitted / (remitted + remaining))
     const totalRemittable = remitted + remaining;
     const progressPercent = totalRemittable > 0 ? Math.round((remitted / totalRemittable) * 100) : 0;
     
@@ -1202,12 +1954,12 @@ function renderStats(filteredList) {
 
 // Render Tab Counts
 function renderTabCounts() {
-    let counts = { all: 0, armor: 0, weapon: 0, active: 0, sold: 0 };
+    let counts = { all: 0, armor: 0, active: 0, sold: 0 };
     
     currentData.items.forEach(item => {
         counts.all++;
-        if (item.category === 'armor') counts.armor++;
-        if (item.category === 'weapon') counts.weapon++;
+        // weapon category is included in armor count (no separate weapon tab)
+        if (item.category === 'armor' || item.category === 'weapon') counts.armor++;
         if (item.status === '판매중') counts.active++;
         if (item.status === '판매완료') counts.sold++;
     });
@@ -1313,48 +2065,65 @@ function renderGrid(list) {
     });
 }
 
-// Render Table List View
+// Render Rich List View
 function renderList(list) {
     elements.itemsTableBody.innerHTML = '';
     
     list.forEach(item => {
-        const row = document.createElement('tr');
-        if (item.status === '판매완료') row.className = 'row-sold';
+        const row = document.createElement('div');
+        row.className = 'rich-list-row' + (item.status === '판매완료' ? ' row-sold' : '');
         
+        const imgPath = getItemImagePath(item.name);
+        const imgHTML = imgPath
+            ? `<img src="${imgPath}" alt="${item.name}" class="rl-item-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+               <div class="rl-item-icon-fallback" style="display:none;"><i class="fa-solid fa-shield-halved"></i></div>`
+            : `<div class="rl-item-icon-fallback"><i class="fa-solid fa-shield-halved"></i></div>`;
+
         const hasAtk = item.stats.atk > 0;
-        const categoryLabel = item.category === 'weapon' ? '무기' : '방어구';
-        
-        const mainStatLabel = hasAtk 
-            ? `공격력: ${item.stats.atk} (업횟: ${item.stats.upgrades})`
-            : `명중률: ${item.stats.accuracy}`;
-            
-        const netVal = item.status === '판매완료' ? formatMeso(item.net_price || Math.round(item.price * 0.9)) : '-';
-        
-        let statusBadge = '';
-        if (item.status === '판매중') {
-            statusBadge = '<span class="table-badge badge-active">판매중</span>';
-        } else {
-            statusBadge = '<span class="table-badge badge-sold">판매완료</span>';
+        const extraStat = hasAtk
+            ? `<span class="rl-stat-chip atk">업횟 <strong>${item.stats.upgrades}</strong></span><span class="rl-stat-chip atk">공${item.stats.atk}</span>`
+            : `<span class="rl-stat-chip acc">명중 <strong>${item.stats.accuracy || 0}</strong></span>`;
+
+        let potentialLabel = '잠재 없음';
+        let potentialClass = 'pot-none';
+        if (item.potential && item.potential !== '없음' && item.potential !== '잠재 없음' && item.potential !== '-') {
+            if (item.potential.includes('레어')) { potentialLabel = '레어 잠재'; potentialClass = 'pot-rare'; }
+            else if (item.potential.includes('에픽')) { potentialLabel = '에픽 잠재'; potentialClass = 'pot-epic'; }
+            else if (item.potential.includes('유니크')) { potentialLabel = '유니크 잠재'; potentialClass = 'pot-unique'; }
+            else { potentialLabel = '잠재 있음'; potentialClass = 'pot-yes'; }
         }
-        
+
+        const statusClass = item.status === '판매중' ? 'status-active' : 'status-sold';
+        const statusLabel = item.status === '판매중' ? '판매중' : '판매완료';
+
         row.innerHTML = `
-            <td><strong>${item.name}</strong></td>
-            <td>${categoryLabel}</td>
-            <td class="table-stat">${item.stats.str}</td>
-            <td class="table-stat">${item.stats.dex}</td>
-            <td>${mainStatLabel}</td>
-            <td class="table-stat text-highlight" style="color:var(--accent-gold);">${item.stats.total}</td>
-            <td>${item.potential}</td>
-            <td class="table-price">${formatMeso(item.price)}</td>
-            <td>${statusBadge}</td>
-            <td>${item.expiry || '-'}</td>
-            <td class="table-net-price">${netVal}</td>
+            <div class="rl-col-img">
+                <div class="rl-img-wrap">${imgHTML}</div>
+            </div>
+            <div class="rl-col-name">
+                <span class="rl-name">${item.name}</span>
+            </div>
+            <div class="rl-col-stats">
+                <span class="rl-stat-chip">합 <strong>${item.stats.total}</strong></span>
+                <span class="rl-stat-chip">STR <strong>${item.stats.str}</strong></span>
+                <span class="rl-stat-chip">DEX <strong>${item.stats.dex}</strong></span>
+            </div>
+            <div class="rl-col-extra">${extraStat}</div>
+            <div class="rl-col-potential">
+                <span class="pot-badge ${potentialClass}">${potentialLabel}</span>
+            </div>
+            <div class="rl-col-price">
+                <span class="rl-price">${formatMeso(item.price)}<em>메소</em></span>
+            </div>
+            <div class="rl-col-status">
+                <span class="rl-status-badge ${statusClass}">${statusLabel}</span>
+            </div>
+            <div class="rl-col-expiry">
+                <span class="rl-expiry">${item.expiry || '-'}</span>
+            </div>
         `;
-        
-        row.addEventListener('click', () => {
-            showItemTooltip(item);
-        });
-        
+
+        row.addEventListener('click', () => showItemTooltip(item));
         elements.itemsTableBody.appendChild(row);
     });
 }

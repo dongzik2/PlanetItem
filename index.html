@@ -12,7 +12,7 @@
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="index.css?v=3">
+    <link rel="stylesheet" href="index.css?v=5">
 </head>
 <body>
     <div class="app-container">
@@ -64,7 +64,7 @@
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                     </div>
                     <div class="stat-info">
-                        <span class="stat-label">판매 완료 정산액 (수수료 제외)</span>
+                        <span class="stat-label">판매 완료 금액</span>
                         <div class="stat-value-container">
                             <span class="stat-value" id="stat-net-revenue">0</span>
                             <span class="stat-unit">메소</span>
@@ -111,7 +111,7 @@
                         <div class="progress-title-group">
                             <i class="fa-solid fa-chart-line progress-icon"></i>
                             <div>
-                                <h3 class="progress-title">송금 정산 진행 상황</h3>
+                                <h3 class="progress-title">정산 진행 상황</h3>
                                 <p class="progress-subtitle">전체 판매 완료 금액 대비 실송금 진행도</p>
                             </div>
                         </div>
@@ -174,11 +174,12 @@
                                 </select>
                             </div>
 
-                            <div class="view-toggle-group">
-                                <button id="view-grid" class="view-toggle-btn active" title="카드 뷰">
+                            <!-- Hidden view toggle (kept for JS compatibility) -->
+                            <div class="view-toggle-group" style="display:none;">
+                                <button id="view-grid" class="view-toggle-btn" title="카드 뷰">
                                     <i class="fa-solid fa-table-cells-large"></i>
                                 </button>
-                                <button id="view-list" class="view-toggle-btn" title="리스트 뷰">
+                                <button id="view-list" class="view-toggle-btn active" title="리스트 뷰">
                                     <i class="fa-solid fa-list"></i>
                                 </button>
                             </div>
@@ -189,35 +190,22 @@
 
             <!-- Items Display Area -->
             <section class="items-section">
-                <!-- Card Grid View Container -->
-                <div id="items-grid" class="items-grid-view">
-                    <!-- Dynamic Items will be rendered here -->
-                </div>
+                <!-- Card Grid View Container (hidden) -->
+                <div id="items-grid" class="items-grid-view" style="display:none;"></div>
 
-                <!-- List Table View Container (Hidden by default) -->
-                <div id="items-list-container" class="items-list-view" style="display: none;">
-                    <div class="table-responsive">
-                        <table class="items-table">
-                            <thead>
-                                <tr>
-                                    <th>장비명</th>
-                                    <th>분류</th>
-                                    <th>STR</th>
-                                    <th>DEX</th>
-                                    <th>명중률/공격력</th>
-                                    <th>합스텟</th>
-                                    <th>잠재 유무</th>
-                                    <th>판매 가격</th>
-                                    <th>상태</th>
-                                    <th>만료일</th>
-                                    <th>수수료 제외</th>
-                                </tr>
-                            </thead>
-                            <tbody id="items-table-body">
-                                <!-- Dynamic rows will be rendered here -->
-                            </tbody>
-                        </table>
+                <!-- Rich List View Container -->
+                <div id="items-list-container" class="items-list-view">
+                    <div class="rich-list-header">
+                        <div class="rl-col-img"></div>
+                        <div class="rl-col-name">장비명</div>
+                        <div class="rl-col-stats">STR / DEX / 합스탯</div>
+                        <div class="rl-col-extra">명중 / 공격력</div>
+                        <div class="rl-col-potential">잠재</div>
+                        <div class="rl-col-price">판매가격</div>
+                        <div class="rl-col-status">상태</div>
+                        <div class="rl-col-expiry">만료일</div>
                     </div>
+                    <div id="items-table-body" class="rich-list-body"></div>
                 </div>
 
                 <!-- Empty State -->
@@ -227,6 +215,7 @@
                     <p>검색어나 필터를 확인해 주세요.</p>
                 </div>
             </section>
+
         </main>
 
         <!-- Settings Modal / Sheet Update Dynamic -->

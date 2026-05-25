@@ -1211,6 +1211,23 @@
       "category": "weapon",
       "name": "블루 코르뱅",
       "stats": {
+        "str": 10,
+        "dex": 4,
+        "accuracy": 0,
+        "total": 14,
+        "atk": 8,
+        "upgrades": 0
+      },
+      "potential": "미확인",
+      "price": 20000000,
+      "status": "판매완료",
+      "expiry": "26-05-28",
+      "net_price": 18000000
+    },
+    {
+      "category": "weapon",
+      "name": "블루 코르뱅",
+      "stats": {
         "str": 6,
         "dex": 0,
         "accuracy": 0,
@@ -1347,6 +1364,23 @@
       "category": "weapon",
       "name": "블루 코르뱅",
       "stats": {
+        "str": 6,
+        "dex": 0,
+        "accuracy": 0,
+        "total": 6,
+        "atk": 10,
+        "upgrades": 0
+      },
+      "potential": "미확인",
+      "price": 63000000,
+      "status": "판매중",
+      "expiry": "26-05-28",
+      "net_price": 0
+    },
+    {
+      "category": "weapon",
+      "name": "블루 코르뱅",
+      "stats": {
         "str": 7,
         "dex": 7,
         "accuracy": 0,
@@ -1444,28 +1478,11 @@
       "status": "판매중",
       "expiry": "26-05-28",
       "net_price": 0
-    },
-    {
-      "category": "weapon",
-      "name": "각종 기타 잔해물",
-      "stats": {
-        "str": 0,
-        "dex": 0,
-        "accuracy": 0,
-        "total": 0,
-        "atk": 8,
-        "upgrades": 0
-      },
-      "potential": "",
-      "price": 80000000,
-      "status": "판매중",
-      "expiry": "26-05-28",
-      "net_price": 0
     }
   ],
   "settlement": {
-    "total_revenue": 867639999,
-    "remaining": 157800799,
+    "total_revenue": 885639999,
+    "remaining": 175800799,
     "remittances": [
       {
         "date": "5/23 22:45",

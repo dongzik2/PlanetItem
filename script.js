@@ -1467,10 +1467,10 @@ const DEFAULT_DATA = {
             }
         ],
         "settlement": {
-            "total_revenue": 867639999,
-            "remittance_1st": 231789200,
-            "remittance_label": "택포 1차 송금액",
-            "remaining": 157800799,
+            "total_revenue": 885639999,
+            "remittance_1st": 709839200,
+            "remittance_label": "정산액",
+            "remaining": 175800799,
             "remittances": [
                 {
                     "date": "5/23 22:45",
@@ -1603,7 +1603,7 @@ function parseDate(dateStr) {
 }
 
 // Initialize Application
-const DATA_VERSION = 'v7';
+const DATA_VERSION = 'v8';
 function init() {
     // Set default input URL
     elements.inputSheetUrl.value = localStorage.getItem('sheet_url') || elements.inputSheetUrl.value;
@@ -2009,20 +2009,18 @@ function renderStats(filteredList) {
     // 남은 금액: 시트의 remaining 값 직접 사용
     let remaining = currentData.settlement.remaining || 0;
     
-    // 정산액: '택포' 또는 '송금' 단어가 포함된 항목만 합산
+    // 정산액: 시트의 모든 remittance 항목 합산 (택포 송금 + 혼줌 구매 + 세이브 등 전부)
     let remitted = 0;
     if (currentData.settlement.remittances && currentData.settlement.remittances.length > 0) {
-        const remittances = currentData.settlement.remittances;
-        remitted = remittances
-            .filter(r => r.label && (r.label.includes('택포') || r.label.includes('송금')))
-            .reduce((sum, r) => sum + r.amount, 0);
+        remitted = currentData.settlement.remittances
+            .reduce((sum, r) => sum + (r.amount || 0), 0);
     } else {
-        remitted = currentData.settlement.remittance_1st || netSoldRevenue;
+        remitted = currentData.settlement.remittance_1st || 0;
     }
     
     // 카드 라벨: 항상 "정산액"으로 표시
     elements.labelRemittance.innerText = '정산액';
-    elements.labelRemittanceDate.innerText = '정산 완료 후 송금된 금액';
+    elements.labelRemittanceDate.innerText = '정산 완료 후 사용된 금액 합계';
     
     elements.remitted.innerText = formatMeso(remitted);
     elements.remaining.innerText = formatMeso(remaining);

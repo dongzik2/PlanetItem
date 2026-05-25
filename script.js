@@ -2167,7 +2167,9 @@ function renderList(list) {
 
         let potentialLabel = '잠재 없음';
         let potentialClass = 'pot-none';
-        if (item.potential && item.potential !== '없음' && item.potential !== '잠재 없음' && item.potential !== '-') {
+        
+        const potValue = item.potential ? item.potential.trim().toUpperCase() : '';
+        if (potValue && potValue !== 'X' && potValue !== '없음' && potValue !== '잠재 없음' && potValue !== '-') {
             if (item.potential.includes('레어')) { potentialLabel = '레어 잠재'; potentialClass = 'pot-rare'; }
             else if (item.potential.includes('에픽')) { potentialLabel = '에픽 잠재'; potentialClass = 'pot-epic'; }
             else if (item.potential.includes('유니크')) { potentialLabel = '유니크 잠재'; potentialClass = 'pot-unique'; }

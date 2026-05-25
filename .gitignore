@@ -16,3 +16,10 @@ dashboard_preview.png
 
 # Git internal
 .git/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

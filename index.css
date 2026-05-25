@@ -1777,3 +1777,117 @@ body {
     padding-top: 12px;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
+
+/* ── 정산액 카드 내역 보기 힌트 ── */
+.stat-detail-hint {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    font-size: 11px;
+    color: var(--accent-green);
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity var(--transition-fast);
+    pointer-events: none;
+}
+.remitted-card:hover .stat-detail-hint {
+    opacity: 1;
+}
+
+/* ── 정산 지출 내역 모달 ── */
+.settlement-modal-content {
+    max-width: 560px;
+    width: 90%;
+    background: #0f1923;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.7);
+}
+
+.settlement-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.settlement-detail-table th {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-align: left;
+}
+
+.settlement-detail-table th:last-child {
+    text-align: right;
+}
+
+.settlement-detail-table td {
+    padding: 10px 12px;
+    font-size: 13px;
+    color: var(--color-text-main);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: middle;
+}
+
+.settlement-detail-table td:last-child {
+    text-align: right;
+    font-family: var(--font-pixel);
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.settlement-detail-table tr:last-child td {
+    border-bottom: none;
+}
+
+.settlement-detail-table tr:hover td {
+    background: rgba(255,255,255,0.03);
+}
+
+.settlement-row-date {
+    color: var(--color-text-muted);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.settlement-row-label {
+    font-weight: 600;
+}
+
+.settlement-category-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 6px;
+    font-weight: 700;
+}
+
+.badge-remittance  { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+.badge-purchase    { background: rgba(245,158,11,0.15);  color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+.badge-save        { background: rgba(239,68,68,0.15);   color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+.badge-other       { background: rgba(139,92,246,0.15);  color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+
+.settlement-total-row {
+    border-top: 2px solid rgba(255,255,255,0.15) !important;
+    background: rgba(255,255,255,0.03);
+}
+
+.settlement-total-row td {
+    font-weight: 700;
+    color: var(--accent-green) !important;
+    font-size: 14px !important;
+    border-bottom: none !important;
+}
+
+.settlement-empty {
+    text-align: center;
+    padding: 32px;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}

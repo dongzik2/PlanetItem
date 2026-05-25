@@ -1563,11 +1563,17 @@ const elements = {
     btnResetData: document.getElementById('btn-reset-data'),
     inputSheetUrl: document.getElementById('input-sheet-url'),
     inputCsvRaw: document.getElementById('input-csv-raw'),
-    
+
     // Tooltip detail modal
     detailModal: document.getElementById('detail-modal'),
     closeDetailModal: document.querySelector('.close-detail-modal'),
-    itemTooltipDetail: document.getElementById('item-tooltip-detail')
+    itemTooltipDetail: document.getElementById('item-tooltip-detail'),
+
+    // Settlement detail modal
+    settlementDetailModal: document.getElementById('settlement-detail-modal'),
+    closeSettlementModal: document.querySelector('.close-settlement-modal'),
+    settlementDetailBody: document.getElementById('settlement-detail-body'),
+    statCardRemitted: document.getElementById('stat-card-remitted')
 };
 
 // Format Number with Comma
@@ -1758,7 +1764,19 @@ function bindEvents() {
     elements.closeDetailModal.addEventListener('click', () => {
         elements.detailModal.classList.remove('active');
     });
-    
+
+    // Settlement detail modal open/close
+    if (elements.statCardRemitted) {
+        elements.statCardRemitted.addEventListener('click', () => {
+            openSettlementDetailModal();
+        });
+    }
+    if (elements.closeSettlementModal) {
+        elements.closeSettlementModal.addEventListener('click', () => {
+            elements.settlementDetailModal.classList.remove('active');
+        });
+    }
+
     // Close modal on outside click
     window.addEventListener('click', (e) => {
         if (e.target === elements.settingsModal) {
@@ -1766,6 +1784,9 @@ function bindEvents() {
         }
         if (e.target === elements.detailModal) {
             elements.detailModal.classList.remove('active');
+        }
+        if (e.target === elements.settlementDetailModal) {
+            elements.settlementDetailModal.classList.remove('active');
         }
     });
     
@@ -2426,3 +2447,53 @@ function showItemTooltip(item) {
 
 // Run on page load
 window.addEventListener('DOMContentLoaded', init);
+
+// ── 정산 지출 내역 모달 ──
+function categorizeRemittance(label) {
+    const l = label;
+    if (l.includes('송금')) return { cls: 'badge-remittance', text: '송금' };
+    if (l.includes('구매')) return { cls: 'badge-purchase', text: '구매' };
+    if (l.includes('세이브')) return { cls: 'badge-save', text: '세이브' };
+    return { cls: 'badge-other', text: '기타' };
+}
+
+function openSettlementDetailModal() {
+    const remittances = currentData.settlement.remittances || [];
+    const body = elements.settlementDetailBody;
+
+    if (remittances.length === 0) {
+        body.innerHTML = `<div class="settlement-empty">같이시도하라 ꭤ 내역이 없습니다.<br>시트를 동기화하면 자동으로 불러옵니다.</div>`;
+    } else {
+        const total = remittances.reduce((s, r) => s + (r.amount || 0), 0);
+        const rows = remittances.map(r => {
+            const cat = categorizeRemittance(r.label || '');
+            return `<tr>
+                <td class="settlement-row-date">${r.date || '-'}</td>
+                <td class="settlement-row-label">
+                    <span class="settlement-category-badge ${cat.cls}">${cat.text}</span>${r.label || '-'}
+                </td>
+                <td>${formatMeso(r.amount)} 메소</td>
+            </tr>`;
+        }).join('');
+
+        body.innerHTML = `
+            <table class="settlement-detail-table">
+                <thead>
+                    <tr>
+                        <th>날짜</th>
+                        <th>항목</th>
+                        <th>금액</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rows}
+                    <tr class="settlement-total-row">
+                        <td colspan="2">합계</td>
+                        <td>${formatMeso(total)} 메소</td>
+                    </tr>
+                </tbody>
+            </table>`;
+    }
+
+    elements.settlementDetailModal.classList.add('active');
+}
